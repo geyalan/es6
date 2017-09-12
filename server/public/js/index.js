@@ -76,114 +76,48 @@ module.exports = __webpack_require__(1);
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__class_lesson13__ = __webpack_require__(2);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__class_lesson13___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0__class_lesson13__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__class_lesson17__ = __webpack_require__(2);
 // import 'babel-polyfill';
+// import './class/lesson17';
 
+// import {A,test,Hello} from './class/lesson17';
+// import * as lesson from './class/lesson17';
+
+
+// console.log(A,test,Hello);
+// console.log(lesson.A,lesson.test);
+console.log(__WEBPACK_IMPORTED_MODULE_0__class_lesson17__["a" /* default */].A);
 
 /***/ }),
 /* 2 */
-/***/ (function(module, exports) {
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
-{
-	// 基本定义
-	let ajax=function(callback){
-		console.log("执行");
-		setTimeout(function(){
-			callback&&callback.call()
-		},1000)
-	};
-	ajax(function(){
-		console.log('timeout1')
-	})
+"use strict";
+// export let A=123;
+// export function test(){
+// 	console.log('test');
+// }
+// export class Hello{
+// 	test(){
+// 		console.log('class')
+// 	}
+// }
+
+let A=123;
+let test=function(){
+	console.log('test');
 }
-
-{
-	let ajax=function(){
-		console.log('执行2');
-		return new Promise(function(resolve,reject){
-			setTimeout(function(){
-				resolve();
-			},1000)
-		})
-	};
-
-	ajax().then(function(){
-		console.log('Promise','timeout2');
-	})
-}
-
-{
-	let ajax=function(){
-		console.log('执行3');
-		return new Promise(function(resolve,reject){
-			setTimeout(function(){
-				resolve();
-			},1000)
-		})
-	};
-
-	ajax().then(function(){
-		return new Promise(function(resolve,reject){
-			setTimeout(function(){
-				resolve()
-			},2000)
-		})
-	}).then(function(){
-		console.log('timeout3')
-	})
-}
-
-{
-	let ajax=function(num){
-		console.log('执行4');
-		return  new Promise(function(resolve,reject){
-			if(num>5){
-				resolve()
-			}else{
-				throw new Error('出错了')
-			}
-		})
+class Hello{
+	test(){
+		console.log('class')
 	}
-
-	ajax(6).then(function(){
-		console.log('log',6)
-	}).catch(function(err){
-		console.log('catch',err);
-	})
-
-	ajax(4).then(function(){
-		console.log('log',4)
-	}).catch(function(err){
-		console.log('catch',err);
-	})
 }
 
-{
-	// 所以图片加载完再添加到页面
-	function loadImg(src){
-		return new Promise((resolve,reject)=>{
-			let img=document.createElement('img');
-			img.src=src;
-			img.onload=function(){
-				resolve(img);
-			}
-			img.onerror=function(imgs){
-				reject(err);
-			}
-		})
-	}
-
-	function showImgs(imgs){
-		imgs.forEach(function(img){
-			document.body.appendChild(img);
-		})
-	}
-
-	// Promise.all({
-	// 	loadImg()
-	// })
-}
+/* harmony default export */ __webpack_exports__["a"] = ({
+	A,
+	test,
+	Hello
+});
 
 /***/ })
 /******/ ]);

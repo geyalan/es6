@@ -93,7 +93,36 @@
 		})
 	}
 
-	// Promise.all({
-	// 	loadImg()
-	// })
+	Promise.all({
+		loadImg('../images/1.png'),
+		loadImg('../images/2.png'),
+		loadImg('../images/3.png')
+	}).then(showImgs)
+}
+
+{
+	function loadImg(src){
+		return new Promise((resolve,reject)=>{
+			let img=document.createElement('img');
+			img.src=src;
+			img.onload=function(){
+				resolve(img);
+			}
+			img.onerror=function(imgs){
+				reject(err);
+			}
+		})
+	}
+
+	function showImgs(img){
+		let p=document.createElement('p');
+		p.appendChild(img);
+		document.body.appendChild(p);
+	}
+
+	// Promise.race({
+	// 	loadImg('../images/1.png'),
+	// 	loadImg('../images/2.png'),
+	// 	loadImg('../images/3.png')
+	// }).then(showImgs)
 }
